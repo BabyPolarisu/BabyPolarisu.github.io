@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Website</title> 
-    
+    <meta charset="urf-8">
   </head>
   <body>
     <h1>Hello to Github Pages </h1>
