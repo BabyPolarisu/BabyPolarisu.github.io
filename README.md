@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Website</title> 
+    <title>Website</title>
     <meta charset="urf-8">
   </head>
   <body>
