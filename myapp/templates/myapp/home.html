@@ -1,0 +1,71 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }} - F1 Fan Site</title>
+  <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">F1</div>
+      <div class="site-name">F1 Fan Site</div>
+    </div>
+    <nav class="nav">
+      <a href="#" class="active">Home</a>
+      <a href="#">Drivers</a>
+      <a href="#">Teams</a>
+      <a href="#">News</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1>Welcome to the Homepage</h1>
+        <p class="lead">{{ message }}</p>
+        <p class="desc">All things Formula 1 — quick races, faster laps, and the latest coverage for fans.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#">Explore Drivers</a>
+          <a class="btn btn-ghost" href="#">Latest News</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <!-- stylized car / track card -->
+        <div class="track-card">
+          <div class="flag-checker" aria-hidden="true"></div>
+          <div class="car">🏎️</div>
+          <div class="fast-line"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="features">
+    <div class="container">
+      <article class="card">
+        <h3>Drivers</h3>
+        <p>Profiles, stats and recent results for your favorite drivers.</p>
+      </article>
+      <article class="card">
+        <h3>Teams</h3>
+        <p>Team histories, cars, and technical insights.</p>
+      </article>
+      <article class="card">
+        <h3>Race Weekend</h3>
+        <p>Schedules, qualifying order, and live race updates.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© {% now "Y" %} F1 Fan Site — Built with Django + ASGI (uvicorn)</p>
+  </footer>
+
+</body>
+</html>
