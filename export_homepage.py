@@ -2,10 +2,12 @@
 """
 Export Django homepage to static HTML for GitHub Pages.
 This script renders the homepage template and saves it as index.html.
+Converts absolute paths to relative paths for GitHub Pages compatibility.
 """
 import os
 import sys
 import django
+import re
 from pathlib import Path
 
 # Setup Django
@@ -28,10 +30,18 @@ def export_homepage():
     dist_dir = Path('dist')
     dist_dir.mkdir(exist_ok=True)
     
+    # Get HTML content
+    html_content = response.content.decode('utf-8')
+    
+    # Convert absolute paths to relative paths for GitHub Pages
+    # /static/myapp/style.css -> myapp/style.css
+    html_content = re.sub(r'href="/static/([^"]*)"', r'href="\1"', html_content)
+    html_content = re.sub(r'src="/static/([^"]*)"', r'src="\1"', html_content)
+    
     # Save HTML
     html_path = dist_dir / 'index.html'
     with open(html_path, 'w', encoding='utf-8') as f:
-        f.write(response.content.decode('utf-8'))
+        f.write(html_content)
     
     print(f"✓ Homepage exported to {html_path}")
     
@@ -51,3 +61,4 @@ def export_homepage():
 if __name__ == '__main__':
     success = export_homepage()
     sys.exit(0 if success else 1)
+

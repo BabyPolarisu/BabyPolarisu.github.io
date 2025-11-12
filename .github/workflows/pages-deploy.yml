@@ -50,3 +50,4 @@ jobs:
           publish_dir: ./dist
           cname: # Optional: add custom domain if needed
           force_orphan: true
+          exclude_assets: '.github,*.md,CNAME'
